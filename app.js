@@ -1,4 +1,4 @@
-//  //Using getElementById, select the div with the info for Portillo's inside of it and set it to a const variable called portillos.
+// 1. //Using getElementById, select the div with the info for Portillo's inside of it and set it to a const variable called portillos.
 const portillos = document.getElementById(`portillos`);
 console.dir(portillos);
 // 2. Using getElementsByTagName, select all the images and set them to a const variable called images
@@ -11,10 +11,10 @@ console.dir(centered);
 const ginosEast = document.querySelector(`div`);
 console.dir(ginosEast);
 // 5. Using querySelectorAll, select all the p elements and set them to a const variable called pTags
-const pTags = document.querySelectorAll('p');
+const pTags = document.querySelectorAll(`p`);
 console.dir(pTags);
 // 6a. Select the h1 (You can use whichever selector you want) and set it to a const variable called h1.
-const h1 = document.getElementsByTagName(`h1`);
+const h1 = document.querySelector(`h1`);
 console.dir(h1);
 // 6b. Use inner text to change the text to say "Matt's Favorite Places To Eat In Sweet Home Chicago!"
 h1.innertext = `Matt's Favorite Places To Eat In Sweet Home Chicago!`;
@@ -30,7 +30,7 @@ contentsP.innerHTML = `Other favorites`;
 console.log(contentsP.innerHTML);
 
 // 8a. Select the a tag at the bottom of the HTML file and set it to a const variable called aTag.
-const aTag = document.getElementsByTagName(`a`);
+const aTag = document.querySelector(`a`);
 console.dir(aTag);
 // 8b. Change the href attribute to the following link "https://www.choosechicago.com/articles/food-drink/5-classic-chicago-foods/"
 aTag.innerHTML = 'https://www.choosechicago.com/articles/food-drink/5-classic-chicago-foods/';
@@ -41,9 +41,10 @@ console.dir(h1);
 
 console.log(h1.classList);
 
-h1.classList.add('text-color', 'background');
+h1.classList.add(`text-color`, `background`);
 
 console.log(h1.classList);
+
 // 10. Using classList, REMOVE the "background" class from the h1 (NOTE: You can use the h1 variable you created earlier)
 h1.classList.remove(`background`);
 console.log(h1.classList);
@@ -54,7 +55,7 @@ console.log(h4.innerText);
 h4.innerText = "CHICAGO: A great place to eat!";
 console.log(h4.innerText);
 // 11c. Using prepend, add the h4 to the start of the webpage/document (NOTE: You need to select the body element before you do this)
-const start = document.querySelector (`body`);
+const start = document.querySelector(`body`);
 start.prepend(h4);
 // 12a. Using createElement, create an h5 element and set it to a const variable called h5
 const h5 = document.createElement(`h5`);
@@ -67,14 +68,44 @@ aTag.insertAdjacentElement(`afterend`,h5);
 
 // 13. Using remove, remove the "Jay's Beef" li (NOTE: You will need to select the li first)
 document.querySelector(`ul>li`).remove();
+
 // BONUS 
 // 14a. Select all the divs and set it to a const variable called divs.
 const divs = document.querySelectorAll(`div`);
 console.dir(divs);
 // 14b. Using classList, TOGGLE the "background" class on for all the divs (NOTE: You will need a loop to do this)
-console.log(divs.classList);
-divs.classList.toggle(`background`);
-
+for (d of divs){
+d.classList.toggle(`background`);
+}
 // 15a. Create an array called hungry with the following string values "Thanks", "A", "Lot", "Now", "I", "Am", "Hungry"
-hungry = ["Thanks", "A", "Lot", "Now", "I", "Am", "Hungry"];
+hungry = [
+    "Thanks", 
+    "A", 
+    "Lot", 
+    "Now", 
+    "I", 
+    "Am", 
+    "Hungry"
+];
 // 15b. Using a loop, add each item from the hungry array as span elements/tags to the bottom of the document/webpage
+
+const veryhungry = document.createElement(`span`);
+
+for (h of hungry.join(" ")) {
+    const veryhungry = document.createElement(`span`);
+   
+    veryhungry.innerText = h;
+
+    start.append(veryhungry);
+}
+
+
+
+
+
+
+// for (i = 0; i < hungry.length; i++){
+
+    
+// start.append(`${veryhungry}`);
+// }
